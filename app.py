@@ -24,17 +24,17 @@ def index():
         system("echo 'Dentro da pasta'")
         system(f"git clone {url_repo}")
     
-    for file in listdir("./"):
-        chdir(file)
-        for file2 in listdir("./"):
-            if file2.endswith(".hex"):
-                if path.exists("../../../file-to-test/"):
-                    shutil.copy(f"./{file2}", f"../../../file-to-test/{folder_name}.hex")
-                else:
-                    mkdir(path="../../../file-to-test")
-                    shutil.copy(f"./{file2}", f"../../../file-to-test/{folder_name}.hex")
+        for file in listdir("./"):
+            chdir(file)
+            for file2 in listdir("./"):
+                if file2.endswith(".hex"):
+                    if path.exists("../../../file-to-test/"):
+                        shutil.copy(f"./{file2}", f"../../../file-to-test/{folder_name}.hex")
+                    else:
+                        mkdir(path="../../../file-to-test")
+                        shutil.copy(f"./{file2}", f"../../../file-to-test/{folder_name}.hex")
 
-    chdir(path_atual)
+        chdir(path_atual)
     return render_template("index.html")
 
 
